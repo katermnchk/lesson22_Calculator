@@ -14,10 +14,10 @@ public class GreetingHandler implements HttpHandler {
 
         Map<String, String> parameters = getParameters(query);
 
-        int first = Integer.parseInt(parameters.get("first"));
-        int second = Integer.parseInt(parameters.get("second"));
+        String name = parameters.get("name");
+        int age = Integer.parseInt(parameters.get("age"));
 
-        String message = first + " " + second;
+        String message = "Hello %s, %s!".formatted(name, age);
 
         exchange.sendResponseHeaders(200, message.length());
 
